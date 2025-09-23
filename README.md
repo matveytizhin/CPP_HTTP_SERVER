@@ -73,7 +73,7 @@ make
 g++ client.cpp -o client
 ./client
 
-'''
+cpp'''
 
 ## Примеры тестирования
 
@@ -88,7 +88,7 @@ curl -I http://localhost:8080/index.html
 #DELETE-запрос (HTTP/1.2)
 telnet localhost 8080
 DELETE /test.txt HTTP/1.2
-'''
+cpp'''
 
 '''cpp
 
@@ -111,4 +111,4 @@ int main() {
 gcc filesystem/cgi_test.c -o filesystem/cgi_test
 telnet localhost 8080
 GET /cgi_test?name=user&id=123 HTTP/1.2
-'''
+cpp'''
