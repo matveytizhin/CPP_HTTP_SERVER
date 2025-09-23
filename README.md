@@ -23,25 +23,24 @@
 
 ## Структура проекта
 
-.
-├── build/ # Директория для сборки проекта
-├── filesystem/ # Корневая директория для файлов сервера
-├── .vscode/ # Настройки для Visual Studio Code
-├── client # Исполняемый файл клиента
-├── client.cpp # Исходный код простого тестового клиента
-├── client_class.cpp # Реализация класса Client
-├── client_class.h # Заголовочный файл класса Client
-├── CMakeLists.txt # Файл конфигурации для CMake
-├── http.h # Главный обработчик входящих HTTP-запросов
-├── macro.h # Макросы и константы (ВАЖНО: требует настройки)
-├── main.cpp # Главный файл сервера (сокет, poll, цикл accept, fork)
-├── request_http.cpp # Базовый класс для обработки HTTP-запросов
-├── request_http.h #
-├── request_http_v1.cpp # Реализация для HTTP/1.1 (GET, HEAD)
-├── request_http_v1.h #
-├── request_http_v2.cpp # Реализация для HTTP/1.2 (DELETE, CGI)
-├── request_http_v2.h #
-└── server_testing.cpp # Тестовый код или альтернативная реализация сервера```
+- **build/** - Директория для сборки проекта  
+- **filesystem/** - Корневая директория для файлов сервера  
+- **.vscode/** - Настройки для Visual Studio Code  
+- **client** - Исполняемый файл клиента  
+- **client.cpp** - Исходный код простого тестового клиента  
+- **client_class.cpp** - Реализация класса Client  
+- **client_class.h** - Заголовочный файл класса Client  
+- **CMakeLists.txt** - Файл конфигурации для CMake  
+- **http.h** - Главный обработчик входящих HTTP-запросов  
+- **macro.h** - Макросы и константы (ВАЖНО: требует настройки)  
+- **main.cpp** - Главный файл сервера (сокет, poll, цикл accept, fork)  
+- **request_http.cpp** - Базовый класс для обработки HTTP-запросов  
+- **request_http.h**  
+- **request_http_v1.cpp** - Реализация для HTTP/1.1 (GET, HEAD)  
+- **request_http_v1.h**  
+- **request_http_v2.cpp** - Реализация для HTTP/1.2 (DELETE, CGI)  
+- **request_http_v2.h**  
+- **server_testing.cpp** - Тестовый код или альтернативная реализация сервера
 
 ## Сборка и запуск HTTP сервера
 
@@ -74,11 +73,8 @@ make
 g++ client.cpp -o client
 ./client
 
-cpp'''
 
 ## Примеры тестирования
-
-```cpp
 
 #GET-запрос (HTTP/1.1)
 curl http://localhost:8080/index.html
@@ -90,9 +86,6 @@ curl -I http://localhost:8080/index.html
 telnet localhost 8080
 DELETE /test.txt HTTP/1.2
 
-cpp'''
-
-'''cpp
 
 #CGI-запрос (HTTP/1.2)
 // filesystem/cgi_test.c
