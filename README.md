@@ -45,10 +45,6 @@
 
 ## Сборка и запуск HTTP сервера
 
-### 1. Конфигурация
-
-**ВАЖНО!** Перед сборкой необходимо указать абсолютный путь к корневой директории сервера.
-
 1. Откройте файл `macro.h`
 2. Найдите строку `#define PATH_FILESYSTEM "..."`
 3. Замените путь на актуальный путь к директории `filesystem` в вашем проекте:
@@ -58,13 +54,61 @@
 #define PATH_FILESYSTEM "/home/your_user/path/to/project/filesystem/"
 
 
-### Подготовка файловой системы
+# Подготовка файловой системы
 mkdir -p filesystem
 echo "<html><body><h1>Hello, World!</h1></body></html>" > filesystem/index.html
 echo "This is another file." > filesystem/test.txt
 
-### Сборка проекта
+# Сборка проекта
 mkdir build
 cd build
 cmake ..
 make
+
+#Запуск сервера
+./server_project
+
+#Использование клиента
+# В корневой директории проекта
+g++ client.cpp -o client
+./client
+
+'''
+
+## Примеры тестирования
+
+```cpp
+
+#GET-запрос (HTTP/1.1)
+curl http://localhost:8080/index.html
+
+#HEAD-запрос (HTTP/1.1)
+curl -I http://localhost:8080/index.html
+
+#DELETE-запрос (HTTP/1.2)
+telnet localhost 8080
+DELETE /test.txt HTTP/1.2
+'''
+
+'''cpp
+
+#CGI-запрос (HTTP/1.2)
+// filesystem/cgi_test.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    printf("Content-Type: text/plain\r\n\r\n");
+    printf("CGI script executed!\n");
+    
+    char* query = getenv("QUERY_STRING");
+    if (query) {
+        printf("Query: %s\n", query);
+    }
+    return 0;
+}
+
+gcc filesystem/cgi_test.c -o filesystem/cgi_test
+telnet localhost 8080
+GET /cgi_test?name=user&id=123 HTTP/1.2
+'''
