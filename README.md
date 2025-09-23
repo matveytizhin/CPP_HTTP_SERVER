@@ -22,6 +22,7 @@
 -   **Обработка кодов состояния**: корректно возвращает коды HTTP, такие как `200 OK`, `400 Bad Request`, `403 Forbidden`, `404 Not Found`, `501 Not Implemented`.
 
 ## Структура проекта
+
 .
 ├── build/ # Директория для сборки проекта
 ├── filesystem/ # Корневая директория для файлов сервера
@@ -40,4 +41,30 @@
 ├── request_http_v1.h #
 ├── request_http_v2.cpp # Реализация для HTTP/1.2 (DELETE, CGI)
 ├── request_http_v2.h #
-└── server_testing.cpp # Тестовый код или альтернативная реализация сервера
+└── server_testing.cpp # Тестовый код или альтернативная реализация сервера```
+
+## Сборка и запуск HTTP сервера
+
+### 1. Конфигурация
+
+**ВАЖНО!** Перед сборкой необходимо указать абсолютный путь к корневой директории сервера.
+
+1. Откройте файл `macro.h`
+2. Найдите строку `#define PATH_FILESYSTEM "..."`
+3. Замените путь на актуальный путь к директории `filesystem` в вашем проекте:
+
+```cpp
+// Пример в macro.h
+#define PATH_FILESYSTEM "/home/your_user/path/to/project/filesystem/"
+
+
+### Подготовка файловой системы
+mkdir -p filesystem
+echo "<html><body><h1>Hello, World!</h1></body></html>" > filesystem/index.html
+echo "This is another file." > filesystem/test.txt
+
+### Сборка проекта
+mkdir build
+cd build
+cmake ..
+make
