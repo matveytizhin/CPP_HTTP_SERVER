@@ -50,6 +50,7 @@
 3. Замените путь на актуальный путь к директории `filesystem` в вашем проекте:
 
 ```cpp
+
 // Пример в macro.h
 #define PATH_FILESYSTEM "/home/your_user/path/to/project/filesystem/"
 
@@ -88,6 +89,7 @@ curl -I http://localhost:8080/index.html
 #DELETE-запрос (HTTP/1.2)
 telnet localhost 8080
 DELETE /test.txt HTTP/1.2
+
 cpp'''
 
 '''cpp
