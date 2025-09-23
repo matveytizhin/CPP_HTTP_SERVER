@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/server_project.dir/main.cpp.o CMakeFiles/server_project.dir/request_http_v1.cpp.o CMakeFiles/server_project.dir/request_http_v2.cpp.o CMakeFiles/server_project.dir/request_http.cpp.o -o server_project 

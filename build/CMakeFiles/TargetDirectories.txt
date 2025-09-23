@@ -1,0 +1,3 @@
+/home/matvey/2023_tizhin215/ООП/t4/build/CMakeFiles/server_project.dir
+/home/matvey/2023_tizhin215/ООП/t4/build/CMakeFiles/edit_cache.dir
+/home/matvey/2023_tizhin215/ООП/t4/build/CMakeFiles/rebuild_cache.dir
